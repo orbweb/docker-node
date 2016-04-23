@@ -22,6 +22,8 @@ RUN             cd /opt/src/node && \
                 apk del .build-deps
 RUN             mkdir -p /usr/src/app && \
                 npm install -g bower && \
-                echo '{ "allow_root": true }' > /root/.bowerrc
+                echo '{ "allow_root": true }' > /root/.bowerrc && \
+                apk --no-cache add --virtual .build-deps \
+                    git
 WORKDIR         /usr/src/app
 CMD             ["node"]
