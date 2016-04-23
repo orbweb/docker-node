@@ -13,7 +13,7 @@ RUN             cd /opt/src/node && \
                     paxctl \
                     python && \
                 ./configure --prefix=/usr/local && \
-                make && \
+                make -j$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
                 make install && \
                 paxctl -cm /usr/local/bin/node && \
                 rm -rf /opt/src && \
