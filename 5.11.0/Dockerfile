@@ -1,7 +1,7 @@
 FROM            alpine:3.3
 MAINTAINER      Orbweb Inc. <engineering@orbweb.com>
 ENV             NPM_CONFIG_LOGLEVEL=info
-ENV             NODE_VERSION=5.11.0
+ENV             NODE_VERSION=5.11.0 NPM_VERSION=3 BOWER_VERSION=1.7
 
 RUN             mkdir -p /opt/src && \
                 apk --no-cache add --virtual .build-deps \
@@ -23,7 +23,8 @@ RUN             mkdir -p /opt/src && \
                     libstdc++ && \
                 apk del .build-deps
 RUN             mkdir -p /usr/src/app && \
-                npm install -g bower && \
+                npm install -f npm@$NPM_VERSION && \
+                npm install -g bower@BOWER_VERSION && \
                 echo '{ "allow_root": true }' > /root/.bowerrc
 WORKDIR         /usr/src/app
 CMD             ["node"]
