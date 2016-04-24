@@ -23,8 +23,8 @@ RUN             mkdir -p /opt/src && \
                     libstdc++ && \
                 apk del .build-deps
 RUN             mkdir -p /usr/src/app && \
-                npm install -f npm@$NPM_VERSION && \
-                npm install -g bower@BOWER_VERSION && \
+                npm install -g npm@$NPM_VERSION && \
+                npm install -g bower@$BOWER_VERSION && \
                 echo '{ "allow_root": true }' > /root/.bowerrc
 WORKDIR         /usr/src/app
 CMD             ["node"]
