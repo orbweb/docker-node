@@ -3,7 +3,7 @@ MAINTAINER      Orbweb Inc. <engineering@orbweb.com>
 
 ENV             BOWER_VERSION=1.7
 
-RUN             npm install -g bower@BOWER_VERSION && \
+RUN             npm install -g bower@$BOWER_VERSION && \
                 echo '{ "allow_root": true }' > /root/.bowerrc
 
 ONBUILD COPY    package.json /usr/src/app/
