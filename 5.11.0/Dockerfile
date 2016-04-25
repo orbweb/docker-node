@@ -23,6 +23,6 @@ RUN             mkdir -p /opt/src && \
                     libstdc++ && \
                 apk del .build-deps
 RUN             mkdir -p /usr/src/app && \
-                npm install -g npm@$NPM_VERSION && \
+                npm install -g npm@$NPM_VERSION
 WORKDIR         /usr/src/app
 CMD             ["node"]
